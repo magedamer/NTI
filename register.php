@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
           } else {
             echo("$email is not a valid email address"."<br>");
           }
-          
+
           // sanitize email
           $email = filter_var($email, FILTER_SANITIZE_EMAIL);
 
@@ -90,7 +90,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         }elseif(filter_var($linkidIn,FILTER_VALIDATE_URL))
         {
           echo "linkidin is valid" ."<br>";
-        
+
         }else
         {
           echo"linkidin not valid" ."<br>";
@@ -102,18 +102,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
           $tmpPath    =  $_FILES['image']['tmp_name'];
           $imageName  =  $_FILES['image']['name'];
-      
-           
+
+
 
           $exArray   = explode('.',$imageName);
           $extension = end($exArray);
 
           $FinalName = rand().time().'.'.$extension;
 
-          $allowedExtension = ["png",'jpg'];
+          $allowedExtension = ["png","jpg","jpeg","gif"];
 
            if(in_array($extension,$allowedExtension)){
-                
+
 
               $desPath = './uploads/'.$FinalName;
 
@@ -132,16 +132,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
            echo 'Image Field Required';
        }
 
-}else
-{
-        $_SESSION['name'] = $name;
-        $_SESSION['email'] = $email;
-        $_SESSION['passwoed']=$password;
-        $_SESSION['address']=$address;
-        $_SESSION['linkidin']=$linkidIn;
-        $_SESSION['image'] =$exArray;
+        $_SESSION['name']     = $name;
+        $_SESSION['email']    = $email;
+        $_SESSION['passwoed'] = $password;
+        $_SESSION['address']  = $address;
+        $_SESSION['linkidin'] = $linkidIn;
+        $_SESSION['image']    = $FinalName;
 
-         
+
 
         header("Location: profile.php");
 

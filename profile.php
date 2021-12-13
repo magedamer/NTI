@@ -2,7 +2,7 @@
 
 session_start();
 
-if(isset($_SESSION['name']) && isset($_SESSION['email'])&& isset($_SESSION['password'])&& isset($_SESSION['address'])&& isset($_SESSION['linkidin'])&& isset($_SESSION['image']) )
+if(isset($_SESSION['name']) && isset($_SESSION['email']))
 
 {
 
@@ -20,6 +20,9 @@ if(isset($_SESSION['name']) && isset($_SESSION['email'])&& isset($_SESSION['pass
     echo 'Session Deleted <br>';
 
 }
+
+
+// session_destroy();
 
 
 
